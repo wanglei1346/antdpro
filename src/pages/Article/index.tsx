@@ -88,7 +88,11 @@ const Article = () => {
       key: 'state',
       dataIndex: 'state',
       render: (state) => (
-        <Tag color={state === 1 ? 'green' : 'volcano'}>{state === 1 ? '已发表' : '未发表'}</Tag>
+        <Tag color={state === 1 ? 'green' : 'volcano'}>
+          {state === 1
+            ? intl.formatMessage({ id: 'article.state.published' })
+            : intl.formatMessage({ id: 'article.state.unpublished' })}
+        </Tag>
       ),
       ellipsis: true,
     },
