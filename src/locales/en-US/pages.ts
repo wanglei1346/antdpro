@@ -2,6 +2,7 @@ export default {
   'article.delete.title': 'Are you sure to delete this article?',
   'article.delete': 'Article Delete',
   'article.edit': 'Article Edit',
+  'article.add': 'Article Add',
   'article.action': 'Article Action',
   'article.createAt': 'Article PostTime',
   'article.state': 'Article State',

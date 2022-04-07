@@ -1,8 +1,9 @@
+import { useIntl } from 'umi';
+import { useState } from 'react';
 import { Card, Form as AntdForm, Input, Select, DatePicker, Button, Row, Col, Space } from 'antd';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import styles from './index.less';
-import { useState } from 'react';
 type IOptions = {
   type: string;
   label: string;
@@ -19,6 +20,7 @@ const Form = ({
   query: (values: any) => void;
   initialValues?: any;
 }) => {
+  const intl = useIntl();
   const [form] = AntdForm.useForm();
   const [isOpen, setIsOpen] = useState(false);
   const spans = options.length;
@@ -155,10 +157,10 @@ const Form = ({
             <AntdForm.Item>
               <Space>
                 <Button type="default" onClick={handleReset}>
-                  重置
+                  {intl.formatMessage({ id: 'form.button.reset' })}
                 </Button>
                 <Button type="primary" htmlType="submit">
-                  查询
+                  {intl.formatMessage({ id: 'form.button.search' })}
                 </Button>
                 <Button
                   type="link"
@@ -166,7 +168,9 @@ const Form = ({
                     setIsOpen(!isOpen);
                   }}
                 >
-                  {isOpen ? '收起' : '展开'}
+                  {isOpen
+                    ? intl.formatMessage({ id: 'form.button.close' })
+                    : intl.formatMessage({ id: 'form.button.open' })}
                   {isOpen ? <UpOutlined /> : <DownOutlined />}
                 </Button>
               </Space>

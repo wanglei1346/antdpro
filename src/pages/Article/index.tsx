@@ -179,7 +179,7 @@ const Article = () => {
         hoverable
         extra={
           <Button type="primary" onClick={addAritcle}>
-            发表文章
+            {intl.formatMessage({ id: 'article.add' })}
           </Button>
         }
         headStyle={{ borderBottom: 'none' }}
